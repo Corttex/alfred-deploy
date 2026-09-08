@@ -18,6 +18,8 @@ services:
       dockerfile: Dockerfile.nginx
     container_name: alfred_nginx
     restart: always
+    expose:
+      - "80"
     depends_on:
       - backend
 
