@@ -13,11 +13,11 @@ services:
       - "8000"
 
   nginx:
-    image: nginx:alpine
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
     container_name: alfred_nginx
     restart: always
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./frontend:/usr/share/nginx/html
     depends_on:
       - backend
+
