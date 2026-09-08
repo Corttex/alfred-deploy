@@ -127,16 +127,6 @@ if zapi_id and zapi_token:
     except Exception as e:
         print_result("Z-API (WhatsApp)", False, str(e))
 
-# Asaas
-asaas_key = os.getenv("ASAAS_API_KEY")
-if asaas_key:
-    try:
-        domain = "api.asaas.com" if "aact_prod" in asaas_key else "sandbox.asaas.com"
-        r = requests.get(f"https://{domain}/api/v3/customers?limit=1", headers={"access_token": asaas_key}, timeout=5)
-        print_result("Asaas", r.status_code == 200, f"HTTP {r.status_code}")
-    except Exception as e:
-        print_result("Asaas", False, str(e))
-
 # ==========================================
 # 3. NUVEM E INFRA
 # ==========================================
